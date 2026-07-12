@@ -1,1 +1,1 @@
-# Smart-Interview-Practice-Platform-
+# Smart-Interview-Practice-Platform

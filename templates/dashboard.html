@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1>Welcome to Smart Interview Practice Platform </h1>
+        <p class="text-muted">
+            Hello, <strong>{{ session["user"] }}</strong>. Ready to practice today?
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    
+                    <h5>Problems</h5>
+                    <p>Solve coding questions.</p>
+                    <a href="{{url_for('problem')}}" class="btn btn-primary">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    
+                    <h5>Favorites</h5>
+                    <p>Your saved problems.</p>
+                    <a href="{{url_for('favorites')}}" class="btn btn-danger">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                   
+                    <h5>Progress</h5>
+                    <p>Track your learning.</p>
+                    <a href="{{url_for('process')}}" class="btn btn-success">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    
+                    <h5>Profile</h5>
+                    <p>Manage your account.</p>
+                    <a href="{{url_for('profile')}}" class="btn btn-info">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    
+                    <h5>Achievements</h5>
+                    <p>Your badges and milestones.</p>
+                    <a href="#" class="btn btn-warning">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    
+                    <h5>Settings</h5>
+                    <p>Customize your account.</p>
+                    <a href="#" class="btn btn-secondary">Open</a>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+{% endblock %}

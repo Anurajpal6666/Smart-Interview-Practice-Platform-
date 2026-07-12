@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <div class="p-5 mb-4 bg-light rounded-4 shadow-lg">
+        <div class="container-fluid py-5">
+
+            <h1 class="display-4 fw-bold text-primary">
+                Smart Interview Practice Platform
+            </h1>
+
+            <p class="lead mt-3">
+                Prepare for coding interviews with confidence.
+                Practice coding questions, track your progress,
+                improve weak topics, and become interview-ready.
+            </p>
+            {% if "user" in session %}
+
+<a href="{{ url_for('dashboard') }}" class="btn btn-success btn-lg mt-3">
+    Go to Dashboard
+</a>
+
+{% else %}
+
+<a href="{{ url_for('login') }}" class="btn btn-primary btn-lg mt-3">
+    Get Started
+</a>
+
+{% endif %}
+
+        </div>
+    </div>
+
+    <div class="row text-center">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h3>Practice</h3>
+                    <p>
+                        Solve coding questions from different topics and
+                        improve your problem-solving skills.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h3>Track Progress</h3>
+                    <p>
+                        Monitor your completed problems and identify
+                        the topics that need more practice.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h3> Stay Organized</h3>
+                    <p>
+                        Save your favorite questions and create
+                        personalized practice sessions.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

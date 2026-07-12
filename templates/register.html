@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5 register-container">
+
+    <div class="card shadow">
+        <div class="card-body">
+
+            <h2 class="text-center mb-4">📝 Create an Account</h2>
+
+            <form method="POST" action="{{ url_for('register') }}">
+
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        placeholder="Create a password"
+                        required>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                </div>
+
+            </form>
+
+            <hr>
+
+            <p class="text-center">
+                Already have an account?
+                <a href="{{ url_for('login') }}">Login</a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

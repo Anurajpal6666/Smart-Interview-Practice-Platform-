@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+Favorites
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">❤️ Favorite Problems</h2>
+
+    <table class="table table-hover table-striped">
+
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Problem</th>
+                <th>Difficulty</th>
+                <th>Topic</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for problem in favorites %}
+
+            <tr>
+                <td>{{ problem.id }}</td>
+                <td>{{ problem.title }}</td>
+                <td>{{ problem.difficulty }}</td>
+                <td>{{ problem.topic }}</td>
+            </tr>
+
+            {% else %}
+
+            <tr>
+                <td colspan="4" class="text-center">
+                    No favorite problems yet ❤️
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}
