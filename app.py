@@ -6,7 +6,10 @@ app = Flask(__name__)
 app.secret_key = "spider man and Batman er Pussy"
 
 # Database Configuration
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///user_db.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
+app.config["SQLALCHEMY_BINDS"] = {
+    "problems": "sqlite:///problems.db"
+}
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
@@ -20,6 +23,7 @@ class User(db.Model):
     name = db.Column(db.String(129), nullable=False)
 
 class Problem(db.Model):
+    __bind_key__ = "problems"
     id=db.Column(db.Integer, primary_key=True)
     frontendQuestionId=db.Column(db.String(8),nullable=False)
     title=db.Column(db.String(299),nullable=False)
