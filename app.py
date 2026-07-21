@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.secret_key = "spider man and Batman er Pussy"
+app = Flask(__name__) 
+app.secret_key = "spider man and Batman er Pussy"  
 
 # Database Configuration
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
@@ -134,8 +134,33 @@ def profile():
 def favorites():
     return render_template("favorites.html", favorites=[])
 #process
+# @app.route("/process")
+# def process():
+#     return render_template("process.html")
+
+#process
 @app.route("/process")
 def process():
-    return render_template("process.html")
+
+    if "email" not in session:
+        return redirect(url_for("login"))
+
+    user = User.query.filter_by(email=session["email"]).first()
+
+    solved = Problem.query.filter_by(user_id=user.id).count()
+
+    total = Problem.query.count()
+
+    percent = 0
+    if total > 0:
+        percent = round((solved / total) * 100)
+
+    return render_template(
+        "process.html",
+        solved=solved,
+        total=total,
+        percent=percent
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)

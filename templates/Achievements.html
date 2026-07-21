@@ -1,0 +1,29 @@
+<div class="card-body">
+
+<h3>Achievements</h3>
+
+{% if solved >= 1 %}
+<div class="alert alert-warning">
+    🏅 First Problem Solved
+</div>
+{% endif %}
+
+{% if solved >= 10 %}
+<div class="alert alert-success">
+    🏅 Solved 10 Problems
+</div>
+{% endif %}
+
+{% if solved >= 50 %}
+<div class="alert alert-primary">
+    🏅 Solved 50 Problems
+</div>
+{% endif %}
+
+{% if solved >= 100 %}
+<div class="alert alert-info">
+    🏅 Century Coder
+</div>
+{% endif %}
+
+</div>
