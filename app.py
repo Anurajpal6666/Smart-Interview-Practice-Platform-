@@ -237,5 +237,41 @@ def achievements():
         percent=percent
     )
 
+@app.route("/settings")
+def settings():
+
+    if "user" not in session:
+        return redirect(url_for("login"))
+
+    return render_template(
+        "settings.html",
+        name=session["user"],
+        email=session["email"]
+    )
+
+@app.route("/change_password", methods=["POST"])
+def change_password():
+
+    if "email" not in session:
+        return redirect(url_for("login"))
+
+    current_password = request.form.get("current_password")
+    new_password = request.form.get("new_password")
+    confirm_password = request.form.get("confirm_password")
+
+    user = User.query.filter_by(email=session["email"]).first()
+
+    if not check_password_hash(user.password_hash, current_password):
+        return redirect(url_for("settings"))
+
+    if new_password != confirm_password:
+        return redirect(url_for("settings"))
+
+    user.password_hash = generate_password_hash(new_password)
+
+    db.session.commit()
+
+    return redirect(url_for("settings"))
+
 if __name__ == "__main__":
     app.run(debug=True)
