@@ -1,6 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+Achievements
+{% endblock %}
+
+{% block body %}
 <div class="card-body">
 
-<h3>Achievements</h3>
+
 
 {% if solved >= 1 %}
 <div class="alert alert-warning">
@@ -27,3 +34,4 @@
 {% endif %}
 
 </div>
+{% endblock %}

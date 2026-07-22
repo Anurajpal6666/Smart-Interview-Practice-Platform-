@@ -4,7 +4,7 @@ Problems
 {% endblock %}
 {% block body %}
 <div class="card align-items-center">
-  <div class="card-body"  style="width: 100rem;">
+  <div class="card-body card-body-problems">
 
 <table class="table table-striped">
     
@@ -30,7 +30,12 @@ Problems
       <td>{{pro.topicTags}}</td>
       <td>{{pro.difficulty}}</td>
       <td>{{pro.acRate}}</td>
-      <td>{{pro.isFavor}}</td>
+      <td>
+    <a href="{{ url_for('add_favorite', problem_id=pro.id) }}"
+       class="btn btn-sm btn-outline-danger">
+        ❤️ Favorite
+    </a>
+</td>
       <td>{{pro.paidOnly}}</td>
     </tr>
   {% endfor %}
