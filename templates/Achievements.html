@@ -5,33 +5,43 @@ Achievements
 {% endblock %}
 
 {% block body %}
-<div class="card-body">
 
+<div class="container mt-5">
 
+    <h2 class="mb-4">🏆 Achievements</h2>
 
-{% if solved >= 1 %}
-<div class="alert alert-warning">
-    🏅 First Problem Solved
+    <p>Solved Problems: <strong>{{ solved }}</strong></p>
+
+    {% if solved >= 1 %}
+    <div class="alert alert-warning">
+        🏅 First Problem Solved
+    </div>
+    {% endif %}
+
+    {% if solved >= 10 %}
+    <div class="alert alert-success">
+        🏅 Solved 10 Problems
+    </div>
+    {% endif %}
+
+    {% if solved >= 50 %}
+    <div class="alert alert-primary">
+        🏅 Solved 50 Problems
+    </div>
+    {% endif %}
+
+    {% if solved >= 100 %}
+    <div class="alert alert-info">
+        🏅 Century Coder
+    </div>
+    {% endif %}
+
+    {% if solved == 0 %}
+    <div class="alert alert-secondary">
+        No achievements yet. Solve your first problem to unlock achievements.
+    </div>
+    {% endif %}
+
 </div>
-{% endif %}
 
-{% if solved >= 10 %}
-<div class="alert alert-success">
-    🏅 Solved 10 Problems
-</div>
-{% endif %}
-
-{% if solved >= 50 %}
-<div class="alert alert-primary">
-    🏅 Solved 50 Problems
-</div>
-{% endif %}
-
-{% if solved >= 100 %}
-<div class="alert alert-info">
-    🏅 Century Coder
-</div>
-{% endif %}
-
-</div>
 {% endblock %}
